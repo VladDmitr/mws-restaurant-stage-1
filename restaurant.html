@@ -24,7 +24,13 @@
          </section>
          <section id="restaurant-container">
             <h1 id="restaurant-name"></h1>
-            <img id="restaurant-img">
+            <picture>
+                <source media="(min-width: 1280px)" id="restaurant-img-800">
+                <source media="(min-width: 650px)" id="restaurant-img-600">
+                <source media="(min-width: 450px)" id="restaurant-img-400">
+                <source media="(min-width: 0)" id="restaurant-img-270">
+                <img id="restaurant-img">
+            </picture>
             <p id="restaurant-cuisine"></p>
             <p id="restaurant-address"></p>
             <table id="restaurant-hours"></table>

@@ -38,7 +38,13 @@ class RestaurantReviewsService {
 
         const image = document.getElementById('restaurant-img');
         image.className = 'restaurant-img';
-        image.src = DBHelper.imageUrlForRestaurant(this._restaurant);
+        image.src = DBHelper.imageUrlForRestaurant(this._restaurant, '800');
+        image.alt = this._restaurant.name;
+
+        for (let value of ['800', '600', '400', '270']) {
+            let source = document.getElementById('restaurant-img-' + value);
+            source.srcset = DBHelper.imageUrlForRestaurant(this._restaurant, value);
+        }
 
         const cuisine = document.getElementById('restaurant-cuisine');
         cuisine.innerHTML = this._restaurant.cuisine_type;

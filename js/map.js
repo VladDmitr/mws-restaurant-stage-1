@@ -48,9 +48,9 @@ class MapLayerDto {
     constructor() {
         this._id = 'mapbox.streets';
         this._token = 'pk.eyJ1IjoidmxhZGRtaXRyIiwiYSI6ImNqbjBxNmJxeDFjd2MzcXFvaDJ3cWJmeWgifQ.sS_7QVLjyDEtu31guRmHxA';
-        this._attribution = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-            '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-            'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>';
+        this._attribution = 'Map data &copy; <a href="https://www.openstreetmap.org/" tabindex="-1">OpenStreetMap</a> contributors, ' +
+            '<a href="https://creativecommons.org/licenses/by-sa/2.0/" tabindex="-1">CC-BY-SA</a>, ' +
+            'Imagery © <a href="https://www.mapbox.com/" tabindex="-1">Mapbox</a>';
         this._maxZoom = 18;
     }
 

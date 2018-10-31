@@ -58,6 +58,8 @@ class RestaurantReviewsService {
 
     static createRestaurantHTML(restaurant) {
         const li = document.createElement('li');
+        li.title = 'Restaurant ' + restaurant.name;
+        li.tabIndex = 0;
 
         const image = document.createElement('img');
         image.className = 'restaurant-img';
@@ -78,7 +80,10 @@ class RestaurantReviewsService {
         li.append(address);
 
         const more = document.createElement('a');
-        more.innerHTML = 'View Details';
+        const moreName = 'View Details';
+        more.title = moreName + ' of ' + restaurant.name;
+        more.setAttribute('role', 'button');
+        more.innerHTML = moreName;
         more.href = DBHelper.urlForRestaurant(restaurant);
         li.append(more);
 

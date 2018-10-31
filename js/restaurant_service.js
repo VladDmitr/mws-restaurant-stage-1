@@ -127,6 +127,8 @@ class RestaurantReviewsService {
      */
     static createReviewHTML(review) {
         const li = document.createElement('li');
+        li.title = 'Review from ' + review.name + ' on ' + review.date;
+        li.tabIndex = 0;
         const userInfo = document.createElement('div');
         const name = document.createElement('div');
         name.innerHTML = review.name;
@@ -140,7 +142,7 @@ class RestaurantReviewsService {
 
         const rating = document.createElement('div');
         rating.classList.add('rating');
-        rating.innerHTML = `<div>Rating: ${review.rating}</div>`;
+        rating.innerHTML = `<div title="Rating: ${review.rating}">Rating: ${review.rating}</div>`;
         li.appendChild(rating);
 
         const comments = document.createElement('p');

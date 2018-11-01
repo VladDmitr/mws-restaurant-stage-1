@@ -1,13 +1,12 @@
 'use strict';
 
 /**
- * Common database helper functions.
+ * @description Common database helper functions.
  */
 class DBHelper {
 
     /**
-     * Database URL.
-     * Change this to restaurants.json file location on your server.
+     * @description Database URL. Change this to restaurants.json file location on your server.
      */
     static get DATABASE_URL() {
         const port = 8887; // Change this to your server port
@@ -15,7 +14,8 @@ class DBHelper {
     }
 
     /**
-     * Fetch all restaurants.
+     * @description Fetch all restaurants.
+     * @param {function} callback
      */
     static fetchRestaurants(callback) {
         fetch(DBHelper.DATABASE_URL).then(function (response) {
@@ -29,7 +29,9 @@ class DBHelper {
     }
 
     /**
-     * Fetch a restaurant by its ID.
+     * @description Fetch a restaurant by its ID.
+     * @param {string} id
+     * @param {function} callback
      */
     static fetchRestaurantById(id, callback) {
         // fetch all restaurants with proper error handling.
@@ -48,7 +50,9 @@ class DBHelper {
     }
 
     /**
-     * Fetch restaurants by a cuisine type with proper error handling.
+     * @description Fetch restaurants by a cuisine type with proper error handling.
+     * @param {string} cuisine
+     * @param {function} callback
      */
     static fetchRestaurantByCuisine(cuisine, callback) {
         // Fetch all restaurants  with proper error handling
@@ -64,7 +68,9 @@ class DBHelper {
     }
 
     /**
-     * Fetch restaurants by a neighborhood with proper error handling.
+     * @description Fetch restaurants by a neighborhood with proper error handling.
+     * @param {string} neighborhood
+     * @param {function} callback
      */
     static fetchRestaurantByNeighborhood(neighborhood, callback) {
         // Fetch all restaurants
@@ -80,7 +86,10 @@ class DBHelper {
     }
 
     /**
-     * Fetch restaurants by a cuisine and a neighborhood with proper error handling.
+     * @description Fetch restaurants by a cuisine and a neighborhood with proper error handling.
+     * @param {string} cuisine
+     * @param {string} neighborhood
+     * @param {function} callback
      */
     static fetchRestaurantByCuisineAndNeighborhood(cuisine, neighborhood, callback) {
         // Fetch all restaurants
@@ -101,7 +110,8 @@ class DBHelper {
     }
 
     /**
-     * Fetch all neighborhoods with proper error handling.
+     * @description Fetch all neighborhoods with proper error handling.
+     * @param {function} callback
      */
     static fetchNeighborhoods(callback) {
         // Fetch all restaurants
@@ -119,7 +129,8 @@ class DBHelper {
     }
 
     /**
-     * Fetch all cuisines with proper error handling.
+     * @description Fetch all cuisines with proper error handling.
+     * @param {function} callback
      */
     static fetchCuisines(callback) {
         // Fetch all restaurants
@@ -137,21 +148,27 @@ class DBHelper {
     }
 
     /**
-     * Restaurant page URL.
+     * @description Restaurant page URL.
+     * @param {object} restaurant
+     * @returns {string}
      */
     static urlForRestaurant(restaurant) {
         return (`./restaurant.html?id=${restaurant.id}`);
     }
 
     /**
-     * Restaurant image URL.
+     * @description Restaurant image URL.
+     * @param {object} restaurant
+     * @param {string} size
+     * @returns {string}
      */
     static imageUrlForRestaurant(restaurant, size) {
         return (`/img/${restaurant.images[size]}`);
     }
 
     /**
-     * Map marker for a restaurant.
+     * @description Map marker for a restaurant.
+     * @returns {object}
      */
     static mapMarkerForRestaurant(restaurant, map) {
         // https://leafletjs.com/reference-1.3.0.html#marker

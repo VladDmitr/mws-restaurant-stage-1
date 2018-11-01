@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Fetch neighborhoods and cuisines as soon as the page is loaded.
+ * @description Fetch neighborhoods and cuisines as soon as the page is loaded.
  */
 document.addEventListener('DOMContentLoaded', (event) => {
     const mapDto = new MapDto();

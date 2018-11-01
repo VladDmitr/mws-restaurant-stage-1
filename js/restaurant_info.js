@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * Initialize map as soon as the page is loaded.
+ * @description Initialize map and fetch restaurant as soon as the page is loaded.
  */
 document.addEventListener('DOMContentLoaded', (event) => {
-    const restaurantReviewsService = new RestaurantReviewsService();
-    restaurantReviewsService.fetchRestaurant();
+    const restaurantInfoService = new RestaurantInfoService();
+    restaurantInfoService.fetchRestaurant();
 });

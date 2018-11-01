@@ -1,12 +1,21 @@
 'use strict';
 
+/**
+ * @description Fetch filters service
+ */
 class FetchFiltersService {
 
+    /**
+     * @constructor
+     */
     constructor() {
         this._neighborhoods = null;
         this._cuisines = null;
     }
 
+    /**
+     * @description Fetch all neighborhoods and set their HTML.
+     */
     fetchNeighborhoods() {
         DBHelper.fetchNeighborhoods((error, neighborhoods) => {
             if (error) {
@@ -18,10 +27,17 @@ class FetchFiltersService {
         });
     }
 
+    /**
+     * @description Get neighborhoods select element
+     * @returns {null|Element}
+     */
     static getNeighborhoodsSelectElement() {
         return document.getElementById('neighborhoods-select');
     }
 
+    /**
+     * @description Set neighborhoods HTML.
+     */
     _fillNeighborhoodsHTML() {
         const select = FetchFiltersService.getNeighborhoodsSelectElement();
         this._neighborhoods.forEach(neighborhood => {
@@ -32,6 +48,9 @@ class FetchFiltersService {
         });
     }
 
+    /**
+     * @description Fetch all cuisines and set their HTML.
+     */
     fetchCuisines() {
         DBHelper.fetchCuisines((error, cuisines) => {
             if (error) {
@@ -43,10 +62,17 @@ class FetchFiltersService {
         });
     }
 
+    /**
+     * @description Get cuisines select element
+     * @returns {null|Element}
+     */
     static getCuisinesSelectElement() {
         return document.getElementById('cuisines-select');
     }
 
+    /**
+     * @description Set cuisines HTML.
+     */
     _fillCuisinesHTML() {
         const select = FetchFiltersService.getCuisinesSelectElement();
         this._cuisines.forEach(cuisine => {

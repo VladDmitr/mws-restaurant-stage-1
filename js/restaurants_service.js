@@ -1,5 +1,8 @@
 'use strict';
 
+/**
+ * @description Restaurant reviews service
+ */
 class RestaurantReviewsService {
 
     /**
@@ -12,6 +15,9 @@ class RestaurantReviewsService {
         this._markers = [];
     }
 
+    /**
+     * @description Update page and map for current restaurants.
+     */
     updateRestaurants() {
         const cSelect = FetchFiltersService.getCuisinesSelectElement();
         const nSelect = FetchFiltersService.getNeighborhoodsSelectElement();
@@ -33,10 +39,17 @@ class RestaurantReviewsService {
         })
     }
 
+    /**
+     * @description Get restaurants list element
+     * @returns {null|Element}
+     */
     static getRestaurantsListElement() {
         return document.getElementById('restaurants-list');
     }
 
+    /**
+     * @description Clear current restaurants, their HTML and remove their map markers.
+     */
     _resetRestaurants() {
         const ul = RestaurantReviewsService.getRestaurantsListElement();
         ul.innerHTML = '';
@@ -48,6 +61,9 @@ class RestaurantReviewsService {
         this._markers = [];
     }
 
+    /**
+     * @description Create all restaurants HTML and add them to the webpage.
+     */
     _fillRestaurantsHTML() {
         const ul = RestaurantReviewsService.getRestaurantsListElement();
         this._restaurants.forEach(restaurant => {
@@ -56,6 +72,11 @@ class RestaurantReviewsService {
         this._addMarkersToMap();
     }
 
+    /**
+     * @description Create restaurant HTML.
+     *  @param {object} restaurant
+     * @returns {Element}
+     */
     static createRestaurantHTML(restaurant) {
         const li = document.createElement('li');
         li.title = 'Restaurant ' + restaurant.name;
@@ -90,6 +111,9 @@ class RestaurantReviewsService {
         return li
     };
 
+    /**
+     * @description Add markers for current restaurants to the map.
+     */
     _addMarkersToMap() {
         this._restaurants.forEach(restaurant => {
             // Add marker to the map

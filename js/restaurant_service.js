@@ -1,16 +1,22 @@
 'use strict';
 
-class RestaurantReviewsService {
+/**
+ * @description Restaurant info service
+ */
+class RestaurantInfoService {
 
+    /**
+     * @constructor
+     */
     constructor() {
         this._restaurant = null;
     }
 
     /**
-     * Get current restaurant from page URL.
+     * @description Get current restaurant from page URL.
      */
     fetchRestaurant() {
-        const id = RestaurantReviewsService.getParameterByName('id');
+        const id = RestaurantInfoService.getParameterByName('id');
         if (!id) {
             throw new Error('No restaurant id in URL');
         } else {
@@ -27,7 +33,7 @@ class RestaurantReviewsService {
     }
 
     /**
-     * Create restaurant HTML and add it to the web page
+     * @description Create restaurant HTML and add it to the web page
      */
     _fillRestaurantHTML() {
         const name = document.getElementById('restaurant-name');
@@ -58,7 +64,7 @@ class RestaurantReviewsService {
     }
 
     /**
-     * Create restaurant operating hours HTML table and add it to the web page.
+     * @description Create restaurant operating hours HTML table and add it to the web page.
      */
     _fillRestaurantHoursHTML() {
         const hours = document.getElementById('restaurant-hours');
@@ -79,7 +85,7 @@ class RestaurantReviewsService {
     }
 
     /**
-     * Create all reviews HTML and add them to the web page.
+     * @description Create all reviews HTML and add them to the web page.
      */
     _fillReviewsHTML() {
         const container = document.getElementById('reviews-container');
@@ -96,13 +102,13 @@ class RestaurantReviewsService {
         }
         const ul = document.getElementById('reviews-list');
         reviews.forEach(review => {
-            ul.appendChild(RestaurantReviewsService.createReviewHTML(review));
+            ul.appendChild(RestaurantInfoService.createReviewHTML(review));
         });
         container.appendChild(ul);
     }
 
     /**
-     * Add restaurant name to the breadcrumb navigation menu
+     * @description Add restaurant name to the breadcrumb navigation menu
      */
     _fillBreadcrumb() {
         const breadcrumb = document.getElementById('breadcrumb');
@@ -111,6 +117,10 @@ class RestaurantReviewsService {
         breadcrumb.appendChild(li);
     }
 
+    /**
+     * @description Get map
+     * @returns {object}
+     */
     _getMap() {
         const mapDto = new MapDto();
         mapDto
@@ -123,7 +133,9 @@ class RestaurantReviewsService {
     }
 
     /**
-     * Create review HTML and add it to the web page.
+     * @description Create review HTML and add it to the web page.
+     * @param {object} review
+     * @returns {Element}
      */
     static createReviewHTML(review) {
         const li = document.createElement('li');
@@ -153,7 +165,10 @@ class RestaurantReviewsService {
     }
 
     /**
-     * Get a parameter by name from page URL.
+     * @description Get a parameter by name from page URL.
+     * @param {string} name
+     * @param {string} url
+     * @returns {string}
      */
     static getParameterByName(name, url) {
         if (!url) {

@@ -1,35 +1,68 @@
 'use strict';
 
+/**
+ * @description Service worker DTO
+ */
 class ServiceWorkerDto {
 
+    /**
+     * @description Set self
+     * @param {object} self
+     * @returns {ServiceWorkerDto}
+     */
     setSelf(self) {
         this._self = self;
         return this;
     }
 
+    /**
+     * @description Get self
+     * @returns {object}
+     */
     getSelf() {
         return this._self;
     }
 
+    /**
+     * @description Set cache name
+     * @param {string} cacheName
+     * @returns {ServiceWorkerDto}
+     */
     setCacheName(cacheName) {
         this._cacheName = cacheName;
         return this;
     }
 
+    /**
+     * @description Get cache name
+     * @returns {string}
+     */
     getCacheName() {
         return this._cacheName;
     }
 
+    /**
+     * @description Set cache urls
+     * @param {array} cachedURIs
+     * @returns {ServiceWorkerDto}
+     */
     setCachedURIs(cachedURIs) {
         this._cachedURIs = cachedURIs;
         return this;
     }
 
+    /**
+     * @description Get cache urls
+     * @returns {array}
+     */
     getCachedURIs() {
         return this._cachedURIs;
     }
 }
 
+/**
+ * @description Service worker
+ */
 class ServiceWorker {
 
     /**
@@ -40,6 +73,9 @@ class ServiceWorker {
         this._config = config;
     }
 
+    /**
+     * @description Service worker setup
+     */
     setup() {
         const self = this;
         this._config.getSelf().addEventListener('install', function (event) {

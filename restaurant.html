@@ -14,16 +14,16 @@
          <nav role="navigation" tabindex="0">
             <h1><a href="/" title="Restaurant Reviews">Restaurant Reviews</a></h1>
          </nav>
-         <ul id="breadcrumb" aria-label="Breadcrumb" tabindex="0">
+         <ul id="breadcrumb" aria-label="Breadcrumb" role="navigation" tabindex="0">
             <li><a href="/" title="Home">Home</a></li>
          </ul>
       </header>
-      <main id="maincontent" role="main">
+      <main id="maincontent"  aria-label="location" role="application">
          <section id="map-container" role="region" aria-label="Map with restaurant" tabindex="0">
             <div id="map"></div>
          </section>
          <section id="restaurant-container" role="region" tabindex="0" aria-label="Restaurant info">
-            <h1 id="restaurant-name"></h1>
+            <h2 id="restaurant-name"></h2>
             <picture tabindex="0">
                 <source media="(min-width: 1280px)" id="restaurant-img-800">
                 <source media="(min-width: 650px)" id="restaurant-img-600">

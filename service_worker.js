@@ -88,7 +88,7 @@ class ServiceWorker {
 
         this._config.getSelf().addEventListener('fetch', function (event) {
             event.respondWith(caches.open(self._config.getCacheName()).then(function (cache) {
-                    return caches.match(event.request).then(function (response) {
+                    return caches.match(event.request, {'ignoreSearch': true}).then(function (response) {
                             return response || fetch(event.request).catch(function (error) {
                             });
                         }
